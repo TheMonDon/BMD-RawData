@@ -1,0 +1,178 @@
+{
+  "name": "Music Player Start",
+  "type": "event",
+  "trigger": "event",
+  "actions": [
+    {
+      "name": "Get Global Data",
+      "file": "getGlobalData.js",
+      "data": {
+        "name": "Get Global Data",
+        "dataName": "player-start-message",
+        "defaultValue": "undefined",
+        "store": {
+          "type": "temporary",
+          "value": "oldMessage"
+        }
+      },
+      "id": 1737402604323
+    },
+    {
+      "name": "Check If Message Exists",
+      "file": "checkIfMessageExists.js",
+      "data": {
+        "name": "Check If Message Exists",
+        "message": {
+          "type": "tempVar",
+          "value": "oldMessage"
+        },
+        "true": {
+          "type": "runActions",
+          "value": ""
+        },
+        "trueActions": [
+          {
+            "name": "Delete Message",
+            "file": "deleteMessage.js",
+            "data": {
+              "name": "Delete Message",
+              "message": {
+                "type": "tempVar",
+                "value": "oldMessage"
+              }
+            },
+            "id": 1737403117913
+          }
+        ],
+        "false": {
+          "type": "continue",
+          "value": ""
+        },
+        "falseActions": []
+      },
+      "id": 1737402647193
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "temporary",
+          "value": "track"
+        },
+        "trackInfo": {
+          "type": "requestedBy",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "requestedBy"
+        }
+      },
+      "id": 1737394306021
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "temporary",
+          "value": "track"
+        },
+        "trackInfo": {
+          "type": "url",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "url"
+        }
+      },
+      "id": 1737394298654
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "temporary",
+          "value": "track"
+        },
+        "trackInfo": {
+          "type": "title",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "title"
+        }
+      },
+      "id": 1737394249953
+    },
+    {
+      "name": "Send Message",
+      "file": "sendmessage.js",
+      "data": {
+        "name": "Send Message",
+        "messageContent": "",
+        "actionRows": [],
+        "embeds": [
+          {
+            "type": "embed",
+            "data": {
+              "title": "Now Playing",
+              "embedColor": "#0099CC",
+              "footerContent": "",
+              "imageURL": "",
+              "footerIconURL": "",
+              "thumbnailURL": "",
+              "authorName": "",
+              "authorIcon": "",
+              "description": "[${tempVars('title')}](${tempVars('url')}) \n\n\nRequested By: <@${tempVars('requestedBy')}>",
+              "fields": [],
+              "url": "",
+              "timestamp": "None",
+              "customTimestamp": ""
+            }
+          }
+        ],
+        "channel": {
+          "type": "id",
+          "value": "${tempVars('queue').metadata.channel}"
+        },
+        "replyToInteraction": true,
+        "storeAs": {
+          "value": "message",
+          "type": "temporary"
+        },
+        "options": [
+          {
+            "type": "options"
+          }
+        ]
+      },
+      "id": 1737356646682
+    },
+    {
+      "name": "Store Global Data",
+      "file": "storeGlobalData.js",
+      "data": {
+        "name": "Store Global Data",
+        "source": {
+          "type": "tempVar",
+          "value": "message"
+        },
+        "dataName": "player-start-message"
+      },
+      "id": 1737402565458
+    }
+  ],
+  "customId": 1737339873228,
+  "eventFile": "music_track_start.js",
+  "eventData": ["queue", "track"],
+  "folder": [],
+  "description": "discord-player music start"
+}

@@ -1,0 +1,149 @@
+{
+  "name": "Music Track Added",
+  "type": "event",
+  "trigger": "event",
+  "actions": [
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "temporary",
+          "value": "track"
+        },
+        "trackInfo": {
+          "type": "title",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "title"
+        }
+      },
+      "id": 1737394702292
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "tempVar",
+          "value": "track"
+        },
+        "trackInfo": {
+          "type": "url",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "url"
+        }
+      },
+      "id": 1737394702293
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "temporary",
+          "value": "track"
+        },
+        "trackInfo": {
+          "type": "requestedBy",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "requestedBy"
+        }
+      },
+      "id": 1737394702294
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "temporary",
+          "value": "track"
+        },
+        "trackInfo": {
+          "type": "thumbnail",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "thumbnail"
+        }
+      },
+      "id": 1737394702295
+    },
+    {
+      "name": "Send Message",
+      "file": "sendmessage.js",
+      "data": {
+        "name": "Send Message",
+        "messageContent": "",
+        "actionRows": [],
+        "embeds": [
+          {
+            "type": "embed",
+            "data": {
+              "title": "Track Added to Queue",
+              "embedColor": "#0099CC",
+              "footerContent": "",
+              "imageURL": "",
+              "footerIconURL": "",
+              "thumbnailURL": "${tempVars('thumbnail')}",
+              "authorName": "",
+              "authorIcon": "",
+              "description": "[${tempVars('title')}](${tempVars('urll')})\n\n\nRequested By: <@${tempVars('requestedBy')}>",
+              "fields": [],
+              "url": "",
+              "timestamp": "None",
+              "customTimestamp": ""
+            }
+          }
+        ],
+        "channel": {
+          "type": "id",
+          "value": "${tempVars('queue').metadata.channel}"
+        },
+        "replyToInteraction": true,
+        "storeAs": {
+          "value": "",
+          "type": "temporary"
+        },
+        "options": [
+          {
+            "type": "options"
+          }
+        ],
+        "attachments": [],
+        "poll": [],
+        "mentions": false,
+        "dontSend": false,
+        "ephemeral": false,
+        "updateMessage": {
+          "type": "none",
+          "value": ""
+        },
+        "updateContent": false,
+        "updateComponents": false,
+        "updateEmbeds": false,
+        "updateAttachments": false
+      },
+      "id": 1737357118273
+    }
+  ],
+  "customId": 1737356947163,
+  "eventFile": "music_track_add.js",
+  "eventData": ["queue", "track"],
+  "folder": [],
+  "description": "discord-player track added to queue"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "shuffle",
+  "type": "action",
+  "trigger": "slashCommand",
+  "actions": [
+    {
+      "name": "Control Music",
+      "file": "controlMusic_MOD.js",
+      "data": {
+        "name": "Control Music",
+        "musicAction": {
+          "type": "shuffleQueue",
+          "value": ""
+        }
+      },
+      "id": 1737395402193
+    },
+    {
+      "name": "Send Message",
+      "file": "sendmessage.js",
+      "data": {
+        "name": "Send Message",
+        "messageContent": "Queue Shuffled!",
+        "actionRows": [],
+        "embeds": [],
+        "channel": {
+          "type": "command",
+          "value": ""
+        },
+        "replyToInteraction": true,
+        "storeAs": {
+          "value": "",
+          "type": "temporary"
+        },
+        "options": [
+          {
+            "type": "options"
+          }
+        ]
+      },
+      "id": 1737395417592
+    }
+  ],
+  "customId": 1737395396683,
+  "boundary": {
+    "worksIn": "guild",
+    "limits": []
+  },
+  "parameters": [],
+  "description": "Shuffle the queue",
+  "folder": [],
+  "color": "rgb(0, 153, 204)"
+}

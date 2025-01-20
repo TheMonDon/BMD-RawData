@@ -1,0 +1,163 @@
+{
+  "name": "play",
+  "type": "action",
+  "trigger": "slashCommand",
+  "actions": [
+    {
+      "name": "Defer Interaction",
+      "file": "deferInteraction.js",
+      "data": {
+        "name": "Defer Interaction",
+        "interaction": {
+          "type": "commandInteraction",
+          "value": ""
+        },
+        "replyToInteraction": false,
+        "ephemeral": false
+      },
+      "id": 1737364523173
+    },
+    {
+      "name": "Check If Member",
+      "file": "checkIfMember.js",
+      "data": {
+        "name": "Check If Member",
+        "member": {
+          "type": "author",
+          "value": ""
+        },
+        "check": "Is In Voice Channel?",
+        "true": {
+          "type": "continue",
+          "value": ""
+        },
+        "trueActions": [],
+        "false": {
+          "type": "runActions",
+          "value": ""
+        },
+        "falseActions": [
+          {
+            "name": "Send Message",
+            "file": "sendmessage.js",
+            "data": {
+              "name": "Send Message",
+              "messageContent": "You need to be in a voice channel to use this command!",
+              "actionRows": [],
+              "embeds": [],
+              "channel": {
+                "type": "command",
+                "value": ""
+              },
+              "storeAs": {
+                "value": "",
+                "type": "temporary"
+              },
+              "replyToInteraction": true,
+              "options": [
+                {
+                  "type": "options"
+                }
+              ]
+            },
+            "id": 1737394492895
+          },
+          {
+            "name": "Stop Actions Out Of Container",
+            "file": "stopRunningActionsOutOfContainer.js",
+            "data": {
+              "name": "Stop Actions Out Of Container",
+              "depth": {
+                "type": "default",
+                "value": ""
+              }
+            },
+            "id": 1737394483370
+          }
+        ]
+      },
+      "id": 1737354967943
+    },
+    {
+      "name": "Get Member Info",
+      "file": "getMemberInfo.js",
+      "data": {
+        "name": "Get Member Info",
+        "member": {
+          "type": "author",
+          "value": ""
+        },
+        "get": {
+          "type": "voiceChannel",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "voiceChannel"
+        }
+      },
+      "id": 1737344021028
+    },
+    {
+      "name": "Play Music",
+      "file": "playMusic_MOD.js",
+      "data": {
+        "name": "Play Music",
+        "channel": {
+          "type": "tempVar",
+          "value": "voiceChannel"
+        },
+        "query": "${tempVars('song')}",
+        "store": {
+          "type": "temporary",
+          "value": "track"
+        }
+      },
+      "id": 1737341672804
+    },
+    {
+      "name": "Send Message",
+      "file": "sendmessage.js",
+      "data": {
+        "name": "Send Message",
+        "messageContent": "Now playing: ${tempVars('track').title}",
+        "actionRows": [],
+        "embeds": [],
+        "channel": {
+          "type": "command",
+          "value": ""
+        },
+        "replyToInteraction": true,
+        "storeAs": {
+          "value": "",
+          "type": "temporary"
+        },
+        "options": [
+          {
+            "type": "options"
+          }
+        ]
+      },
+      "id": 1737355080627
+    }
+  ],
+  "customId": 1737341666064,
+  "boundary": {
+    "worksIn": "guild",
+    "limits": []
+  },
+  "parameters": [
+    {
+      "name": "song",
+      "type": "string",
+      "description": "The song to play",
+      "required": true,
+      "choices": [],
+      "storeAs": "song",
+      "completion": false
+    }
+  ],
+  "description": "Play some music!",
+  "folder": [],
+  "color": "rgb(0, 153, 204)"
+}

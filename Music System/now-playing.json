@@ -1,0 +1,120 @@
+{
+  "name": "now-playing",
+  "type": "action",
+  "trigger": "slashCommand",
+  "actions": [
+    {
+      "name": "Store Queue Info",
+      "file": "storeQueueInfo_MOD.js",
+      "data": {
+        "name": "Store Queue Info",
+        "musicAction": {
+          "type": "isPlaying",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "isPlaying"
+        },
+        "queueInfo": {
+          "type": "isPlaying",
+          "value": ""
+        }
+      },
+      "id": 1737361186620
+    },
+    {
+      "name": "Store Queue Info",
+      "file": "storeQueueInfo_MOD.js",
+      "data": {
+        "name": "Store Queue Info",
+        "musicAction": {
+          "type": "progressBar",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "progressBar"
+        },
+        "queueInfo": {
+          "type": "progressBar",
+          "value": ""
+        }
+      },
+      "id": 1737361163536
+    },
+    {
+      "name": "Store Queue Info",
+      "file": "storeQueueInfo_MOD.js",
+      "data": {
+        "name": "Store Queue Info",
+        "musicAction": {
+          "type": "currentTrack",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "track"
+        },
+        "queueInfo": {
+          "type": "currentTrack",
+          "value": ""
+        }
+      },
+      "id": 1737361778801
+    },
+    {
+      "name": "Send Message",
+      "file": "sendmessage.js",
+      "data": {
+        "name": "Send Message",
+        "messageContent": "",
+        "actionRows": [],
+        "embeds": [
+          {
+            "type": "embed",
+            "data": {
+              "title": "",
+              "embedColor": "#0099CC",
+              "footerContent": "",
+              "imageURL": "",
+              "footerIconURL": "",
+              "thumbnailURL": "${tempVars('track').thumbnail || ''}",
+              "authorName": "",
+              "authorIcon": "",
+              "description": "Currently ${tempVars('isPlaying') ? 'Playing' : 'Paused'} [${tempVars('track').title}](${tempVars('track').url})\n\n${tempVars('progressBar')}\n\nRequested By: <@${tempVars('track').requestedBy.id}>",
+              "fields": [],
+              "url": "",
+              "timestamp": "None",
+              "customTimestamp": ""
+            }
+          }
+        ],
+        "channel": {
+          "type": "command",
+          "value": ""
+        },
+        "replyToInteraction": true,
+        "storeAs": {
+          "value": "",
+          "type": "temporary"
+        },
+        "options": [
+          {
+            "type": "options"
+          }
+        ]
+      },
+      "id": 1737361701931
+    }
+  ],
+  "customId": 1737361150066,
+  "boundary": {
+    "worksIn": "guild",
+    "limits": []
+  },
+  "parameters": [],
+  "description": "Show the currently playing song",
+  "folder": [],
+  "color": "rgb(0, 153, 204)"
+}

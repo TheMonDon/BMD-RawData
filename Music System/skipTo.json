@@ -1,0 +1,110 @@
+{
+  "name": "skipto",
+  "type": "action",
+  "trigger": "slashCommand",
+  "actions": [
+    {
+      "name": "Control Music",
+      "file": "controlMusic_MOD.js",
+      "data": {
+        "name": "Control Music",
+        "musicAction": {
+          "type": "skipTo",
+          "value": "${tempVars('song')}"
+        }
+      },
+      "id": 1737405157556
+    },
+    {
+      "name": "Wait",
+      "file": "wait.js",
+      "data": {
+        "name": "Wait",
+        "timeUnit": "Seconds",
+        "time": "1"
+      },
+      "id": 1737406301683
+    },
+    {
+      "name": "Store Queue Info",
+      "file": "storeQueueInfo_MOD.js",
+      "data": {
+        "name": "Store Queue Info",
+        "queueInfo": {
+          "type": "currentTrack",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "currentTrack"
+        }
+      },
+      "id": 1737405325609
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "tempVar",
+          "value": "currentTrack"
+        },
+        "trackInfo": {
+          "type": "title",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "title"
+        }
+      },
+      "id": 1737405342708
+    },
+    {
+      "name": "Send Message",
+      "file": "sendmessage.js",
+      "data": {
+        "name": "Send Message",
+        "messageContent": "Skipped to: ${tempVars('title')}",
+        "actionRows": [],
+        "embeds": [],
+        "channel": {
+          "type": "command",
+          "value": ""
+        },
+        "replyToInteraction": true,
+        "storeAs": {
+          "value": "",
+          "type": "temporary"
+        },
+        "options": [
+          {
+            "type": "options"
+          }
+        ]
+      },
+      "id": 1737405315860
+    }
+  ],
+  "customId": 1737405044046,
+  "boundary": {
+    "worksIn": "guild",
+    "limits": []
+  },
+  "parameters": [
+    {
+      "name": "song",
+      "type": "integer",
+      "description": "The number in queue of the song you want to skip to",
+      "required": true,
+      "choices": [],
+      "storeAs": "song",
+      "completion": false,
+      "min_value": "1"
+    }
+  ],
+  "description": "The song to skip to",
+  "folder": [],
+  "color": "rgb(0, 153, 204)"
+}

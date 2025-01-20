@@ -1,0 +1,165 @@
+{
+  "name": "Music Tracks Added",
+  "type": "event",
+  "trigger": "event",
+  "actions": [
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "tempVar",
+          "value": "tracks"
+        },
+        "trackInfo": {
+          "type": "playlist",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "playlist"
+        }
+      },
+      "id": 1737393700232
+    },
+    {
+      "name": "Store Track Info",
+      "file": "storeTrackInfo_MOD.js",
+      "data": {
+        "name": "Store Track Info",
+        "track": {
+          "type": "temporary",
+          "value": "tracks"
+        },
+        "trackInfo": {
+          "type": "requestedBy",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "requestedBy"
+        }
+      },
+      "id": 1737394176988
+    },
+    {
+      "name": "Store Playlist Info",
+      "file": "storePlaylistInfo_MOD.js",
+      "data": {
+        "name": "Store Playlist Info",
+        "playlist": {
+          "type": "temporary",
+          "value": "playlist"
+        },
+        "playlistInfo": {
+          "type": "length",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "length"
+        }
+      },
+      "id": 1737357550102
+    },
+    {
+      "name": "Store Playlist Info",
+      "file": "storePlaylistInfo_MOD.js",
+      "data": {
+        "name": "Store Playlist Info",
+        "playlist": {
+          "type": "temporary",
+          "value": "playlist"
+        },
+        "playlistInfo": {
+          "type": "title",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "title"
+        }
+      },
+      "id": 1737394089280
+    },
+    {
+      "name": "Store Playlist Info",
+      "file": "storePlaylistInfo_MOD.js",
+      "data": {
+        "name": "Store Playlist Info",
+        "playlist": {
+          "type": "temporary",
+          "value": "playlist"
+        },
+        "playlistInfo": {
+          "type": "url",
+          "value": ""
+        },
+        "store": {
+          "type": "temporary",
+          "value": "url"
+        }
+      },
+      "id": 1737394105331
+    },
+    {
+      "name": "Send Message",
+      "file": "sendmessage.js",
+      "data": {
+        "name": "Send Message",
+        "messageContent": "",
+        "actionRows": [],
+        "embeds": [
+          {
+            "type": "embed",
+            "data": {
+              "title": "Playlist Added to Queue",
+              "embedColor": "#0099CC",
+              "footerContent": "",
+              "imageURL": "",
+              "footerIconURL": "",
+              "thumbnailURL": "",
+              "authorName": "",
+              "authorIcon": "",
+              "description": "[${tempVars('title')}](${tempVars('url')})\n\n\nRequested By: <@${tempVars('requestedBy')}>",
+              "fields": [
+                {
+                  "type": "field",
+                  "data": {
+                    "title": "Playlist Length",
+                    "value": "${tempVars('length').toString()}",
+                    "inline": true
+                  }
+                }
+              ],
+              "url": "",
+              "timestamp": "None",
+              "customTimestamp": ""
+            }
+          }
+        ],
+        "channel": {
+          "type": "id",
+          "value": "${tempVars('queue').metadata.channel}"
+        },
+        "replyToInteraction": true,
+        "storeAs": {
+          "value": "",
+          "type": "temporary"
+        },
+        "options": [
+          {
+            "type": "options"
+          }
+        ]
+      },
+      "id": 1737357431249
+    }
+  ],
+  "customId": 1737357344380,
+  "eventFile": "music_tracks_add.js",
+  "eventData": ["queue", "tracks"],
+  "folder": [],
+  "description": "discord-player tracks added to queue"
+}
