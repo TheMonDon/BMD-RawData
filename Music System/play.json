@@ -60,7 +60,7 @@
                 }
               ]
             },
-            "id": 1737394492895
+            "id": 1737410283546
           },
           {
             "name": "Stop Actions Out Of Container",
@@ -72,7 +72,7 @@
                 "value": ""
               }
             },
-            "id": 1737394483370
+            "id": 1737410283547
           }
         ]
       },
@@ -111,6 +111,22 @@
         "store": {
           "type": "temporary",
           "value": "track"
+        },
+        "leaveOnEnd": {
+          "type": "false",
+          "value": ""
+        },
+        "leaveOnEmpty": {
+          "type": "false",
+          "value": ""
+        },
+        "leaveOnStop": {
+          "type": "true",
+          "value": ""
+        },
+        "selfDeaf": {
+          "type": "true",
+          "value": ""
         }
       },
       "id": 1737341672804
