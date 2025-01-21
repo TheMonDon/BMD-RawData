@@ -60,7 +60,7 @@
                 }
               ]
             },
-            "id": 1737410283546
+            "id": 1737433112794
           },
           {
             "name": "Stop Actions Out Of Container",
@@ -72,7 +72,7 @@
                 "value": ""
               }
             },
-            "id": 1737410283547
+            "id": 1737433112795
           }
         ]
       },
@@ -130,6 +130,68 @@
         }
       },
       "id": 1737341672804
+    },
+    {
+      "name": "Check If Text",
+      "file": "checkIfText_MOD.js",
+      "data": {
+        "name": "Check If Text",
+        "sourceText": "${tempVars('track')}",
+        "criteria": {
+          "type": "equals",
+          "value": ""
+        },
+        "lookup": "undefined",
+        "true": {
+          "type": "runActions",
+          "value": ""
+        },
+        "trueActions": [
+          {
+            "name": "Send Message",
+            "file": "sendmessage.js",
+            "data": {
+              "name": "Send Message",
+              "messageContent": "The bot was unable to find a song with that query.",
+              "actionRows": [],
+              "embeds": [],
+              "channel": {
+                "type": "command",
+                "value": ""
+              },
+              "storeAs": {
+                "value": "",
+                "type": "temporary"
+              },
+              "replyToInteraction": true,
+              "options": [
+                {
+                  "type": "options"
+                }
+              ]
+            },
+            "id": 1737433112796
+          },
+          {
+            "name": "Stop Actions Out Of Container",
+            "file": "stopRunningActionsOutOfContainer.js",
+            "data": {
+              "name": "Stop Actions Out Of Container",
+              "depth": {
+                "type": "default",
+                "value": ""
+              }
+            },
+            "id": 1737433112797
+          }
+        ],
+        "false": {
+          "type": "continue",
+          "value": ""
+        },
+        "falseActions": []
+      },
+      "id": 1737433055690
     },
     {
       "name": "Send Message",
