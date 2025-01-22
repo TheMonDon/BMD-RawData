@@ -60,7 +60,7 @@
                 }
               ]
             },
-            "id": 1737433112794
+            "id": 1737526228871
           },
           {
             "name": "Stop Actions Out Of Container",
@@ -72,7 +72,7 @@
                 "value": ""
               }
             },
-            "id": 1737433112795
+            "id": 1737526228872
           }
         ]
       },
@@ -132,21 +132,26 @@
       "id": 1737341672804
     },
     {
-      "name": "Check If Text",
-      "file": "checkIfText_MOD.js",
+      "name": "Check Variable",
+      "file": "checkVariable.js",
       "data": {
-        "name": "Check If Text",
-        "sourceText": "${tempVars('track')}",
-        "criteria": {
-          "type": "equals",
+        "name": "Check Variable",
+        "variable": {
+          "type": "tempVar",
+          "value": "track"
+        },
+        "comparator": "Exists",
+        "compareValue": "",
+        "true": {
+          "type": "continue",
           "value": ""
         },
-        "lookup": "undefined",
-        "true": {
+        "trueActions": [],
+        "false": {
           "type": "runActions",
           "value": ""
         },
-        "trueActions": [
+        "falseActions": [
           {
             "name": "Send Message",
             "file": "sendmessage.js",
@@ -170,7 +175,7 @@
                 }
               ]
             },
-            "id": 1737433112796
+            "id": 1737526228873
           },
           {
             "name": "Stop Actions Out Of Container",
@@ -182,14 +187,9 @@
                 "value": ""
               }
             },
-            "id": 1737433112797
+            "id": 1737526223138
           }
-        ],
-        "false": {
-          "type": "continue",
-          "value": ""
-        },
-        "falseActions": []
+        ]
       },
       "id": 1737433055690
     },
@@ -232,7 +232,56 @@
       "required": true,
       "choices": [],
       "storeAs": "song",
-      "completion": false
+      "completion": false,
+      "bound": {
+        "name": "Autocompletion",
+        "storeInputAs": {
+          "type": "temporary",
+          "value": "input"
+        },
+        "storeInteractionAs": {
+          "type": "temporary",
+          "value": "interaction"
+        },
+        "actions": [
+          {
+            "name": "Search Music",
+            "file": "searchMusic_MOD.js",
+            "data": {
+              "name": "Search Music",
+              "query": "${tempVars('input')}",
+              "store": {
+                "type": "temporary",
+                "value": "tracks"
+              }
+            },
+            "id": 1737530803197
+          },
+          {
+            "name": "Evaluate",
+            "file": "eval.js",
+            "data": {
+              "name": "Evaluate",
+              "transfer": true,
+              "code": "bridge.variables.tracks\n      .filter((track) => track.url.length < 100)\n      .slice(0, 10)\n      .map((track) => ({\n        name: track.title.slice(0, 100),\n        value: track.url,\n      }));",
+              "result": {
+                "type": "temporary",
+                "value": "result"
+              },
+              "type": {
+                "type": "temporary",
+                "value": ""
+              }
+            },
+            "id": 1737531027989
+          }
+        ],
+        "result": {
+          "type": "tempVar",
+          "value": "result"
+        }
+      },
+      "autocompletion": true
     }
   ],
   "description": "Play some music!",
